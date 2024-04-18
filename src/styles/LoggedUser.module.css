@@ -1,0 +1,57 @@
+.relative {
+    margin-top: auto;
+    position: relative;
+    width: 90%;
+}
+
+.container {
+    border-radius: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-inline: auto;
+    border: 1px solid var(--border);
+}
+
+.popover {
+    position: absolute;
+    background-color: var(--white);
+    border-radius: var(--spacing-xs);
+    border: 1px solid var(--border);
+    padding: var(--spacing-sm);
+    width: 80%;
+    box-shadow: var(--shadow);
+    right: 0;
+    top: -20px;
+    z-index: 2;
+}
+
+.popoverItem {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.popover svg {
+    height: var(--box-sm);
+    width: var(--box-sm);
+}
+
+.holder {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.container > svg {
+    cursor: pointer;
+    height: var(--box-sm);
+    width: var(--box-sm);
+}
+
+.container .holder svg {
+    height: var(--box-md);
+    width: var(--box-md);
+}

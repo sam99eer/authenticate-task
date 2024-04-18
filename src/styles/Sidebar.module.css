@@ -1,0 +1,51 @@
+.container {
+    width: var(--sidebar);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    border-right: 1px solid var(--border);
+    padding: var(--spacing-xl);
+}
+
+.navbar {
+    border-bottom: 1px solid var(--border);
+    padding-block: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.sidebarItem {
+    display: flex;
+    align-items: center;
+    border-radius: var(--spacing-xs);
+    padding: var(--spacing-sm);
+    gap: var(--spacing-md);
+    cursor: pointer;
+}
+
+.sidebarItem svg {
+    height: 12px;
+    width: 12px;
+    fill: var(--black);
+}
+
+.sidebarItem.active {
+    background-color: var(--primary);
+    cursor: default;
+}
+
+.sidebarItem.active svg {
+    fill: var(--white);
+}
+
+.watchList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}

@@ -1,0 +1,36 @@
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.container input {
+    border-radius: var(--spacing-xs);
+    padding: var(--spacing-sm);
+    width: 100%;
+    border: 1px solid;
+}
+
+.container input::placeholder {
+    color: var(--border);
+}
+
+.container.withIcon input {
+    padding-inline-start: calc(var(--spacing-lg) + var(--box-sm));
+}
+
+.container.withIcon svg {
+    width: var(--box-sm);
+    height: var(--box-sm);
+}
+
+.container.light input {
+    outline-color: var(--border);
+    border-color: var(--border);
+}
+
+.container.light svg {
+    fill: var(--border);
+    position: absolute;
+    left: 24px;
+}

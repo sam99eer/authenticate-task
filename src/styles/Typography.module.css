@@ -1,0 +1,31 @@
+.heading {
+    font-size: var(--font-lg);
+    color: var(--black);
+    font-weight: 700;
+}
+
+.subheading {
+    font-size: var(--font-md);
+    color: var(--black);
+    font-weight: 500;
+}
+
+.paragraph {
+    font-size: var(--font-sm);
+    color: var(--black);
+    font-weight: 400;
+}
+
+.primary {
+    color: var(--primary);
+}
+
+.white {
+    color: var(--white);
+}
+
+.clipText {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

@@ -1,0 +1,18 @@
+.container {
+    border: 1px solid var(--border);
+    padding: var(--spacing-md);
+    border-radius: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    cursor: pointer;
+}
+
+.firstItem {
+    height: var(--box-sm);
+    width: var(--box-sm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+}
