@@ -16,3 +16,20 @@
     width: var(--box-sm);
     margin-inline: var(--spacing-xs);
 }
+
+.movieListings {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.movieListings .searchContainer {
+    position: relative;
+    display: flex;
+}
+
+.movieListings .searchContainer > button {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+}

@@ -1,10 +1,11 @@
 import Bookmark from 'src/assets/svg/Bookmark';
+import Tick from 'src/assets/svg/Tick';
 import styles from 'src/styles/Home.module.css';
 import typography from 'src/styles/Typography.module.css';
 
 const Banner = () => {
     return (
-        <div className={styles.banner}>
+        <section className={styles.banner}>
             <h1 className={typography.heading}>
                 Welcome to{' '}
                 <span className={typography.primary}>Watchlists</span>
@@ -16,10 +17,11 @@ const Banner = () => {
                 </p>
                 <p className={typography.paragraph}>
                     Just click the <Bookmark /> to add a movie, the poster to
-                    see more details or to mark the movie as watched.
+                    see more details or click the <Tick /> to mark the movie as
+                    watched.
                 </p>
             </div>
-        </div>
+        </section>
     );
 };
 

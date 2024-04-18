@@ -35,3 +35,9 @@ type T_InputWithoutIcon = {
 };
 
 export type T_Input = T_InputProps & (T_InputWithIcon | T_InputWithoutIcon);
+
+export type T_Button = {
+    text: string;
+    onClick: () => void;
+    isSmall?: boolean;
+};

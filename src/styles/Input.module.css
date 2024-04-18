@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .container input {
@@ -29,8 +30,12 @@
     border-color: var(--border);
 }
 
+.container svg {
+    position: absolute;
+    z-index: 1;
+    left: var(--spacing-md);
+}
+
 .container.light svg {
     fill: var(--border);
-    position: absolute;
-    left: 24px;
 }
