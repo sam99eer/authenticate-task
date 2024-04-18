@@ -2,3 +2,16 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+:root {
+    /* Colors */
+    --skeleton: #1e1d1d;
+    --primary: #f33f40;
+    --black: #1e1e1e;
+    --white: #ffffff;
+    --border: #242424;
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 6px;
+    --spacing-md: 8px;
+}
