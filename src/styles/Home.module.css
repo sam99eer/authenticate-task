@@ -1,0 +1,18 @@
+.banner {
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    border: 1px solid var(--primary);
+    border-radius: var(--spacing-sm);
+    line-height: 30px;
+    background-color: var(--light-bg);
+}
+
+.banner > div {
+    margin-top: var(--spacing-xl);
+}
+
+.banner > div svg {
+    height: var(--box-sm);
+    width: var(--box-sm);
+    margin-inline: var(--spacing-xs);
+}

@@ -21,6 +21,7 @@ const Sidebar = () => {
                 type='text'
                 value={search}
                 onChangeText={setSearch}
+                placeholder='Search'
                 hasIcon
                 icon={<Search />}
             />

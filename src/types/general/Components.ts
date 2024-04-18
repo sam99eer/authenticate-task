@@ -22,6 +22,7 @@ type T_InputProps = {
     variant: 'dark' | 'light';
     type: HTMLInputTypeAttribute;
     value: string;
+    placeholder?: string;
 };
 
 type T_InputWithIcon = {
