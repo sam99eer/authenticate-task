@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    background-color: var(--light-bg);
+    border-radius: var(--spacing-xs);
+    padding: var(--spacing-xl) var(--spacing-lg);
+    box-shadow: var(--shadow);
+}
+
+.container > button {
+    width: var(--button);
+    margin-inline: auto;
+}

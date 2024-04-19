@@ -1,5 +1,12 @@
+import NotAuthenticatedLayout from 'src/components/common/NonAuthenticatedLayout';
+import LoginForm from 'src/components/pages/Login/LoginForm';
+
 const Login = () => {
-    return <div>Login</div>;
+    return (
+        <NotAuthenticatedLayout>
+            <LoginForm />
+        </NotAuthenticatedLayout>
+    );
 };
 
 export default Login;

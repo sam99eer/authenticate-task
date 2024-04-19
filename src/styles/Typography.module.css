@@ -16,6 +16,12 @@
     font-weight: 400;
 }
 
+.link {
+    color: var(--link);
+    font-size: var(--font-sm);
+    font-weight: 500;
+}
+
 .primary {
     color: var(--primary);
 }
@@ -28,4 +34,8 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+}
+
+.centered {
+    text-align: center;
 }

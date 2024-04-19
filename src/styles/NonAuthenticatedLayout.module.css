@@ -1,0 +1,8 @@
+.container {
+    margin: var(--spacing-xl) auto;
+    display: flex;
+    flex-direction: column;
+    max-width: var(--container);
+    gap: var(--spacing-xl);
+    width: clamp(var(--container-min), 90%, var(--container-md));
+}

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import HorizontalDots from 'src/assets/svg/HorizontalDots';
 import Logout from 'src/assets/svg/Logout';
 import UserAvatar from 'src/assets/svg/UserAvatar';
-import useAuthStore from 'src/store/useAuthStore';
+import useAuthStore from 'src/hooks/useAuthStore';
 import styles from 'src/styles/LoggedUser.module.css';
 import typography from 'src/styles/Typography.module.css';
 

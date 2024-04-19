@@ -18,6 +18,7 @@ const Input = (props: T_Input) => {
                 type={props.type}
                 value={props.value}
                 onChange={changeHandler}
+                required={!!props.required}
                 {...(props.placeholder
                     ? { placeholder: props.placeholder }
                     : {})}

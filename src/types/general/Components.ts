@@ -13,7 +13,7 @@ export type T_SidebarItem = {
     icon: ReactNode;
 };
 
-export type T_DashboardLayout = {
+export type T_Children = {
     children: ReactNode;
 };
 
@@ -23,6 +23,7 @@ type T_InputProps = {
     type: HTMLInputTypeAttribute;
     value: string;
     placeholder?: string;
+    required?: boolean;
 };
 
 type T_InputWithIcon = {
@@ -38,6 +39,7 @@ export type T_Input = T_InputProps & (T_InputWithIcon | T_InputWithoutIcon);
 
 export type T_Button = {
     text: string;
-    onClick: () => void;
+    onClick?: () => void;
     isSmall?: boolean;
+    type?: 'button' | 'reset' | 'submit';
 };

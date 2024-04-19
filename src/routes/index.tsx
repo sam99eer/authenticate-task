@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import ProtectedRoute from 'src/components/common/ProtectedRoute';
 import { PROTECTED_ROUTES, PUBLIC_ROUTES, ROUTES } from 'src/data/Routes';
-import useAuthStore from 'src/store/useAuthStore';
+import useAuthStore from 'src/hooks/useAuthStore';
 
 const Routes = () => {
     const isLoggedIn = useAuthStore((store) => store.isLoggedIn);
