@@ -16,6 +16,12 @@
     font-weight: 400;
 }
 
+.small {
+    font-size: var(--font-xs);
+    color: var(--black);
+    font-weight: 400;
+}
+
 .link {
     color: var(--link);
     font-size: var(--font-sm);
@@ -24,6 +30,10 @@
 
 .primary {
     color: var(--primary);
+}
+
+.grey {
+    color: var(--grey);
 }
 
 .white {

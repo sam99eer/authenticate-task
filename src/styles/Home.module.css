@@ -33,3 +33,9 @@
     z-index: 1;
     right: 0;
 }
+
+.movieCards {
+    display: flex;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+}

@@ -1,4 +1,4 @@
-import { HTMLInputTypeAttribute, ReactNode } from 'react';
+import { HTMLInputTypeAttribute, ReactNode, SVGProps } from 'react';
 import type { T_Route } from 'src/types/general/Routes';
 
 export type T_Skeleton = {
@@ -42,4 +42,10 @@ export type T_Button = {
     onClick?: () => void;
     isSmall?: boolean;
     type?: 'button' | 'reset' | 'submit';
+};
+
+export type T_Emoji = 'sad' | 'smile' | 'love';
+
+export type T_Svg = SVGProps<SVGSVGElement> & {
+    isActive: boolean;
 };

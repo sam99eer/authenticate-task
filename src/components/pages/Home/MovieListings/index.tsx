@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import Search from 'src/assets/svg/Search';
 import Button from 'src/components/common/Button';
 import Input from 'src/components/common/Input';
+import MovieCard from 'src/components/common/MovieCard';
 import styles from 'src/styles/Home.module.css';
 
 const MovieListings = () => {
@@ -27,6 +28,14 @@ const MovieListings = () => {
                     icon={<Search />}
                 />
                 <Button text='Search' onClick={searchHandler} isSmall />
+            </div>
+
+            <div className={styles.movieCards}>
+                <MovieCard />
+                <MovieCard />
+                <MovieCard />
+                <MovieCard />
+                <MovieCard />
             </div>
         </section>
     );
