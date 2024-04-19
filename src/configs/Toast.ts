@@ -2,7 +2,7 @@ import { Bounce, ToastContainerProps } from 'react-toastify';
 
 export const toastProps: ToastContainerProps = {
     position: 'top-right',
-    autoClose: 2000,
+    autoClose: 2500,
     hideProgressBar: false,
     newestOnTop: false,
     closeOnClick: true,
@@ -12,4 +12,5 @@ export const toastProps: ToastContainerProps = {
     pauseOnHover: true,
     theme: 'colored',
     transition: Bounce,
+    icon: false,
 };
