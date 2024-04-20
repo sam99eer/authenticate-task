@@ -5,13 +5,13 @@
 
 :root {
     /* Colors */
-    --skeleton: #1e1d1d;
     --primary: #f33f40;
     --black: #1e1e1e;
     --white: #ffffff;
     --border: #d3d3d3;
     --grey: #b9b6b6;
     --light-bg: #fcfcfc;
+    --skeleton: #e3e3e3;
     --link: #6562fc;
     --banner-r: #cccccc;
     --banner-l: #eeeeee;
@@ -39,6 +39,7 @@
     --box-md: 20px;
     --card-h: 310px;
     --card-w: 200px;
+    --card-body: 78px;
     --card-img: 200px;
 }
 

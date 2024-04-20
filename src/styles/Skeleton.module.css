@@ -1,5 +1,11 @@
 .card {
     position: relative;
+    width: var(--card-w);
+    box-shadow: var(--shadow);
+    background-color: var(--white);
+    padding-bottom: calc(
+        var(--card-h) - var(--card-img) - var(--spacing-lg) - var(--card-body)
+    );
 }
 
 .card.rounded {
@@ -9,6 +15,11 @@
 
 .card.spaced {
     margin-block: var(--spacing-md);
+}
+
+.cardBody {
+    padding: var(--spacing-lg);
+    padding-bottom: 0px;
 }
 
 .skeleton {
@@ -23,6 +34,16 @@
     background-repeat: no-repeat;
     background-position: left -40px top 0;
     animation: shine 1.5s ease infinite;
+}
+
+.cardText {
+    height: var(--card-body);
+    border-radius: var(--spacing-xs);
+}
+
+.cardImg {
+    padding-bottom: var(--card-img);
+    position: relative;
 }
 
 @keyframes shine {

@@ -1,8 +1,8 @@
 import { HTMLInputTypeAttribute, ReactNode, SVGProps } from 'react';
+import type { T_Movie } from 'src/types/api/Movie';
 import type { T_Route } from 'src/types/general/Routes';
 
 export type T_Skeleton = {
-    height: number;
     rounded?: boolean;
     verticalSpacing?: boolean;
 };
@@ -59,4 +59,13 @@ export type T_EditModal = {
     editToggle: () => void;
     title: string;
     description: string;
+};
+
+export type T_Skeletons = {
+    total: number;
+};
+
+export type T_MovieCard = {
+    data: T_Movie;
+    mode: 'wishlist' | 'watchlist';
 };
