@@ -1,36 +1,34 @@
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { ROUTES } from 'src/data/Routes';
-import useAuthStore from 'src/hooks/useAuthStore';
 import useIndexDb from 'src/hooks/useIndexDb';
 import type { T_IDB_Error } from 'src/types/db';
 import { DB_TABLES } from 'src/utils/Constants';
 
 const useAuthFunctions = () => {
     const db = useIndexDb();
-    const setLogin = useAuthStore((store) => store.login);
-    const navigate = useNavigate();
 
     const handleLogin = (email: string) => {
-        if (db) {
+        const promise: Promise<string> = new Promise((resolve, reject) => {
+            if (!db) {
+                reject('Unable to connect to IndexDB');
+                return;
+            }
             db.get(DB_TABLES.USERS, email)
                 .then((result) => {
-                    if (!result) throw 'Not Exist';
-                    setLogin(email);
-                    navigate(ROUTES.HOME);
+                    if (!result) throw `${email} is not registered!`;
+                    resolve('Verified Successfully');
                 })
-                .catch(() =>
-                    toast.error(
-                        'This email does not exist. Please register this email!'
-                    )
-                );
-        } else {
-            toast.error('Unable to connect to IndexDB');
-        }
+                .catch((err: string) => {
+                    reject(err);
+                });
+        });
+        return promise;
     };
 
     const handleRegister = (email: string) => {
-        if (db) {
+        const promise: Promise<string> = new Promise((resolve, reject) => {
+            if (!db) {
+                reject('Unable to connect to IndexDB');
+                return;
+            }
             db.add(
                 DB_TABLES.USERS,
                 {
@@ -38,26 +36,16 @@ const useAuthFunctions = () => {
                 },
                 email
             )
-                .then(() => {
-                    setLogin(email);
-                    navigate(ROUTES.HOME);
-                })
+                .then(() => resolve('Registered Successfully'))
                 .catch((err) => {
                     const error = err as T_IDB_Error;
-
-                    if (error.message.includes('already exist')) {
-                        return toast.error(
-                            'This email already exists. Please login!'
-                        );
-                    }
-
-                    toast.error(
-                        'Unable to register this email address. Please try another!'
-                    );
+                    const errorMessage = error.message.includes('already exist')
+                        ? 'This email already exists. Please login!'
+                        : 'Unable to register this email address. Please try another!';
+                    reject(errorMessage);
                 });
-        } else {
-            toast.error('Unable to connect to IndexDB');
-        }
+        });
+        return promise;
     };
 
     return {
