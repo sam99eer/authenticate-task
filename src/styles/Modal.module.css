@@ -1,0 +1,21 @@
+.container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--backdrop);
+    z-index: 3;
+}
+
+.content {
+    width: clamp(var(--container-min), 90%, var(--container-md));
+    border-radius: var(--spacing-xs);
+    background-color: var(--white);
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin-bottom: 10%;
+}

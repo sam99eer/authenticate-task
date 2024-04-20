@@ -12,6 +12,7 @@ import { CONSTANTS } from 'src/utils/Constants';
 
 const App = () => {
     const [loading, setLoading] = useState(true);
+
     const setLogin = useAuthStore((store) => store.login);
     const { handleLogin } = useAuthFunctions();
 

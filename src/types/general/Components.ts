@@ -49,3 +49,14 @@ export type T_Emoji = 'sad' | 'smile' | 'love';
 export type T_Svg = SVGProps<SVGSVGElement> & {
     isActive: boolean;
 };
+
+export type T_Modal = {
+    children: ReactNode;
+    onClose: () => void;
+};
+
+export type T_EditModal = {
+    editToggle: () => void;
+    title: string;
+    description: string;
+};
