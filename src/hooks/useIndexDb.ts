@@ -7,28 +7,35 @@ import { DB, DB_TABLES } from 'src/utils/Constants';
 const useIndexDb = () => {
     const [db, setDb] = useState<T_IDB>(null);
 
-    useEffect(() => {
+    const connectToDb = async () => {
         let database: T_IDB = null;
+        database = await openDB<LocalDB>(DB.NAME, DB.VERSION, {
+            upgrade(db) {
+                db.createObjectStore(DB_TABLES.USERS);
+            },
+        });
+        setDb(database);
+        return database;
+    };
 
-        const connectToDb = async () => {
-            database = await openDB<LocalDB>(DB.NAME, DB.VERSION, {
-                upgrade(db) {
-                    db.createObjectStore(DB_TABLES.USERS);
-                },
-            });
-            setDb(database);
-        };
+    const initDb = async () => {
+        if (!db) {
+            const helperDb = await connectToDb();
+            return helperDb;
+        }
+        return db;
+    };
 
+    useEffect(() => {
         connectToDb();
-
         return () => {
-            if (database) {
-                database.close();
+            if (db) {
+                db.close();
             }
         };
     }, []);
 
-    return db;
+    return { db, initDb };
 };
 
 export default useIndexDb;
