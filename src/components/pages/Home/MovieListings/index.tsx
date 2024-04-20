@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import { useMutation } from 'react-query';
 import { useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -20,11 +20,15 @@ const MovieListings = () => {
         [KEYS.GET_MOVIES, querySearchVal],
         GetMovies
     );
-    const [data, setData] = useState<T_Movie[]>([]);
 
+    const [data, setData] = useState<T_Movie[]>([]);
     const [search, setSearch] = useState(querySearchVal ?? '');
 
-    const searchHandler = () => {
+    const btnRef = useRef<HTMLButtonElement | null>(null);
+
+    const searchHandler = (event: FormEvent) => {
+        event.preventDefault();
+
         if (search.trim().length < 3)
             return toast.warn('Please enter atleast 3 characters');
 
@@ -39,9 +43,15 @@ const MovieListings = () => {
         });
     };
 
+    useEffect(() => {
+        if (!!querySearchVal && btnRef.current) {
+            btnRef.current.click();
+        }
+    }, []);
+
     return (
         <section className={styles.movieListings}>
-            <div className={styles.searchContainer}>
+            <form className={styles.searchContainer} onSubmit={searchHandler}>
                 <Input
                     type='text'
                     value={search}
@@ -51,8 +61,8 @@ const MovieListings = () => {
                     hasIcon
                     icon={<Search />}
                 />
-                <Button text='Search' onClick={searchHandler} isSmall />
-            </div>
+                <Button ref={btnRef} type='submit' text='Search' isSmall />
+            </form>
 
             <div className={styles.movieCards}>
                 {isLoading ? (

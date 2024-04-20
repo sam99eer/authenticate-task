@@ -1,0 +1,19 @@
+.img {
+    margin-block: var(--spacing-xl);
+    border-radius: var(--spacing-xs);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.details,
+.rating {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding-block: var(--spacing-xl);
+    border-top: 1px solid var(--border);
+}
+
+section > p {
+    padding-bottom: var(--spacing-xl);
+}

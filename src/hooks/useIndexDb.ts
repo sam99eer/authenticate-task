@@ -12,6 +12,7 @@ const useIndexDb = () => {
         database = await openDB<LocalDB>(DB.NAME, DB.VERSION, {
             upgrade(db) {
                 db.createObjectStore(DB_TABLES.USERS);
+                db.createObjectStore(DB_TABLES.WATCHLISTS);
             },
         });
         setDb(database);

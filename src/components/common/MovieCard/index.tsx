@@ -15,7 +15,7 @@ const MovieCard = ({ data, mode }: T_MovieCard) => {
     const rating = getRandomRating();
 
     const emojiStatus: T_Emoji =
-        rating > 75 ? 'love' : rating > 50 ? 'smile' : 'sad';
+        rating > 75 ? 'love' : rating > 40 ? 'smile' : 'sad';
 
     const ratingIcon = useMemo(() => EMOJI_MAP.get(emojiStatus), [emojiStatus]);
 
