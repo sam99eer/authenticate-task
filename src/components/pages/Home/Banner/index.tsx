@@ -17,8 +17,8 @@ const Banner = () => {
                 </p>
                 <p className={typography.paragraph}>
                     Just click the <Bookmark /> to add a movie, the poster to
-                    see more details or click the <Tick /> to mark the movie as
-                    watched.
+                    see more details or click the <Tick isActive /> to mark the
+                    movie as watched.
                 </p>
             </div>
         </section>

@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { ROUTES } from 'src/data/Routes';
+import useAuthStore from 'src/hooks/useAuthStore';
 import useIndexDb from 'src/hooks/useIndexDb';
 import type { T_IDB_Error } from 'src/types/db';
 import { DB_TABLES } from 'src/utils/Constants';
-import useAuthStore from './useAuthStore';
 
 const useAuthFunctions = () => {
     const db = useIndexDb();

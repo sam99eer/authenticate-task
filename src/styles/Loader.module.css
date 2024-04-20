@@ -1,0 +1,93 @@
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.banner {
+    position: relative;
+    padding: var(--spacing-md) var(--spacing-xl);
+    animation: loader 1s cubic-bezier(0.5, 0.1, 0.15, 1) alternate infinite;
+}
+
+@keyframes loader {
+    0% {
+        letter-spacing: -1px;
+    }
+    100% {
+        letter-spacing: 15px;
+    }
+}
+
+.banner::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transform: skewX(-15deg);
+    background-color: var(--banner-l);
+}
+
+.bannerLeft,
+.bannerRight {
+    width: 60px;
+    height: 100%;
+    position: absolute;
+    z-index: -2;
+    bottom: -30%;
+    transform: skewX(-15deg);
+    background-color: var(--banner-r);
+}
+
+.bannerLeft {
+    animation: sub-bannerLeft 1s cubic-bezier(0.5, 0.1, 0.15, 1) alternate
+        infinite;
+}
+
+@keyframes sub-bannerLeft {
+    0% {
+        right: 82%;
+    }
+    100% {
+        right: 90%;
+    }
+}
+
+.bannerRight {
+    animation: sub-bannerRight 1s cubic-bezier(0.5, 0.1, 0.15, 1) alternate
+        infinite;
+}
+
+@keyframes sub-bannerRight {
+    0% {
+        left: 82%;
+    }
+    100% {
+        left: 90%;
+    }
+}
+
+.bannerLeft::before,
+.bannerRight::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    border: 22px solid;
+    height: 0;
+    top: -1px;
+    border-color: transparent;
+}
+
+.bannerLeft::before {
+    left: -1px;
+    border-left-color: var(--white);
+}
+
+.bannerRight::before {
+    right: -1px;
+    border-right-color: var(--white);
+}
