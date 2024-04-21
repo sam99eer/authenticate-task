@@ -6,3 +6,9 @@
     max-width: var(--container);
     margin-inline: auto;
 }
+
+@media only screen and (max-width: 767px) {
+    .holder {
+        padding-inline-start: calc(var(--spacing-xl) + var(--sidebar-mobile));
+    }
+}

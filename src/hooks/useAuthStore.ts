@@ -1,3 +1,4 @@
+import useWatchlistStore from 'src/hooks/useWatchlistStore';
 import type { T_Auth } from 'src/types/hooks/Auth';
 import { CONSTANTS } from 'src/utils/Constants';
 import { create } from 'zustand';
@@ -11,6 +12,9 @@ const useAuthStore = create<T_Auth>((set) => ({
     },
     logout: () => {
         localStorage.removeItem(CONSTANTS.LOCAL_EMAIL);
+        const { setWatchlist, setWatchlists } = useWatchlistStore.getState();
+        setWatchlist([]);
+        setWatchlists([]);
         set((prevState) => ({ ...prevState, email: null, isLoggedIn: false }));
     },
 }));

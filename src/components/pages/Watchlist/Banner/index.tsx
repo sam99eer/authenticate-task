@@ -36,7 +36,7 @@ const Banner = () => {
             )}
 
             <div className={styles.topRow}>
-                <h1 className={typography.heading}>
+                <h1 className={`${typography.heading} ${typography.clipText}`}>
                     {filteredWatchlist?.title ?? ''}
                 </h1>
                 <Edit onClick={toggleEditHandler} />

@@ -30,8 +30,8 @@
 }
 
 .sidebarItem svg {
-    height: 12px;
-    width: 12px;
+    height: var(--box-xs);
+    width: var(--box-xs);
     fill: var(--black);
 }
 
@@ -64,4 +64,14 @@
 .watchList::-webkit-scrollbar-track {
     background-color: none;
     border-radius: var(--spacing-lg);
+}
+
+@media only screen and (max-width: 767px) {
+    .container {
+        width: var(--sidebar-mobile);
+    }
+
+    .container > h1 {
+        font-size: var(--font-md);
+    }
 }

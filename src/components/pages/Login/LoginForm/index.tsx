@@ -6,6 +6,7 @@ import Input from 'src/components/common/Input';
 import { ROUTES } from 'src/data/Routes';
 import useAuthFunctions from 'src/hooks/useAuthFunctions';
 import useAuthStore from 'src/hooks/useAuthStore';
+import useWatchlist from 'src/hooks/useWatchlist';
 import formStyles from 'src/styles/Form.module.css';
 import typography from 'src/styles/Typography.module.css';
 
@@ -13,6 +14,7 @@ const LoginForm = () => {
     const [email, setEmail] = useState('');
 
     const { handleLogin } = useAuthFunctions();
+    const { syncWatchlist } = useWatchlist();
     const setLogin = useAuthStore((store) => store.login);
 
     const navigate = useNavigate();
@@ -21,7 +23,8 @@ const LoginForm = () => {
         event.preventDefault();
 
         handleLogin(email)
-            .then(() => {
+            .then(async () => {
+                await syncWatchlist(email);
                 setLogin(email);
                 navigate(ROUTES.HOME);
             })

@@ -55,3 +55,14 @@
     height: var(--box-md);
     width: var(--box-md);
 }
+
+@media only screen and (max-width: 767px) {
+    .holder > p {
+        display: none;
+    }
+
+    .relative,
+    .popover {
+        width: 100%;
+    }
+}
