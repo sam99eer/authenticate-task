@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ROUTES } from 'src/data/Routes';
 import styles from 'src/styles/ListItem.module.css';
 import typography from 'src/styles/Typography.module.css';
@@ -8,13 +8,18 @@ import { getWatchlistLogo } from 'src/utils/Helpers';
 const ListItem = ({ ...data }: T_Watchlist) => {
     const navigate = useNavigate();
 
+    const { pathname } = useLocation();
+
+    const pathArray = pathname.split('/');
+    const isActive = pathArray[pathArray.length - 1] === data.watchlistId;
+
     const navigateHandler = () => {
         navigate(ROUTES.WATCHLIST + data.watchlistId);
     };
 
     return (
         <div
-            className={styles.container}
+            className={`${styles.container} ${isActive ? styles.active : ''}`}
             role='button'
             onClick={navigateHandler}
         >

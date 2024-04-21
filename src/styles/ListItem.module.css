@@ -17,3 +17,8 @@
     background-color: var(--black);
     flex-shrink: 0;
 }
+
+.container.active {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
