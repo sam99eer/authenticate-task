@@ -3,7 +3,7 @@ import type { T_DBConfig } from 'src/types/db';
 export const CONSTANTS = {
     LOCAL_EMAIL: 'loggedEmail',
     API_KEY: '5f5673d0',
-    OMDB_HOST: 'http://www.omdbapi.com/',
+    OMDB_HOST: 'https://www.omdbapi.com/',
 };
 
 export const DB: T_DBConfig = {
