@@ -9,6 +9,7 @@ import typography from 'src/styles/Typography.module.css';
 const LoggedUser = () => {
     const [visible, setVisible] = useState(false);
     const popoverRef = useRef<HTMLDivElement | null>(null);
+    const email = useAuthStore((store) => store.email);
 
     const logoutHandler = useAuthStore((store) => store.logout);
 
@@ -52,7 +53,11 @@ const LoggedUser = () => {
             <div className={styles.container}>
                 <div className={styles.holder}>
                     <UserAvatar />
-                    <p className={typography.paragraph}>GUEST</p>
+                    <p
+                        className={`${typography.paragraph} ${typography.clipText}`}
+                    >
+                        {email}
+                    </p>
                 </div>
                 <HorizontalDots onClick={toggleHandler} />
             </div>
