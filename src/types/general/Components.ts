@@ -59,13 +59,22 @@ export type T_EditModal = {
     editToggle: () => void;
     title: string;
     description: string;
+    watchlistId: string | undefined;
 };
 
 export type T_Skeletons = {
     total: number;
 };
 
+export type T_WishlistMovieCard = {
+    mode: 'wishlist';
+    search: string;
+};
+
+export type T_WatchlistMovieCard = {
+    mode: 'watchlist';
+};
+
 export type T_MovieCard = {
     data: T_Movie;
-    mode: 'wishlist' | 'watchlist';
-};
+} & (T_WishlistMovieCard | T_WatchlistMovieCard);

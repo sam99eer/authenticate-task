@@ -1,5 +1,5 @@
 import { DBSchema, IDBPDatabase } from 'idb';
-import { T_Movie } from 'src/types/api/Movie';
+import type { T_Watchlist, T_Watchlists } from 'src/types/hooks/Watchlist';
 import { DB_TABLES } from 'src/utils/Constants';
 
 export type T_DBConfig = {
@@ -13,20 +13,23 @@ export interface LocalDB extends DBSchema {
         value: { email: string };
         indexes: { email: string };
     };
-    [DB_TABLES.WATCHLISTS]: {
-        key: number;
-        value: {
-            title: string;
-            description: string;
+    [DB_TABLES.WATCHLIST]: {
+        key: string;
+        value: T_Watchlist;
+        indexes: {
             email: string;
-            isWatched: boolean;
-            movie: T_Movie;
+            watchlistId: string;
         };
+    };
+    [DB_TABLES.WATCHLISTS]: {
+        key: string;
+        value: T_Watchlists;
         indexes: {
             email: string;
         };
     };
 }
+
 export type T_IDB = IDBPDatabase<LocalDB> | null;
 
 export type T_IDB_Error = {

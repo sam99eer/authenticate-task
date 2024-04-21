@@ -7,6 +7,7 @@ import { queryClient } from 'src/configs/ReactQuery';
 import { toastProps } from 'src/configs/Toast';
 import useAuthFunctions from 'src/hooks/useAuthFunctions';
 import useAuthStore from 'src/hooks/useAuthStore';
+import useWatchlist from 'src/hooks/useWatchlist';
 import Routes from 'src/routes';
 import { CONSTANTS } from 'src/utils/Constants';
 
@@ -15,6 +16,7 @@ const App = () => {
 
     const setLogin = useAuthStore((store) => store.login);
     const { handleLogin } = useAuthFunctions();
+    const { syncWatchlist } = useWatchlist();
 
     useEffect(() => {
         (async function checkIsLoggedIn() {
@@ -23,6 +25,7 @@ const App = () => {
 
                 if (localEmail) {
                     const email = await handleLogin(localEmail);
+                    await syncWatchlist(email);
                     setLogin(email);
                 }
             } catch (err) {

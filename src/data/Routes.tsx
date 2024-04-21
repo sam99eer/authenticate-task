@@ -10,8 +10,9 @@ export const ROUTES = {
     HOME: '/',
     LOGIN: '/login',
     REGISTER: '/register',
-    WATCHLIST: '/watchlist',
+    WATCHLIST_ID: '/watchlist/:watchlistId',
     MOVIE_ID: '/movie/:movieId',
+    WATCHLIST: '/watchlist/',
     MOVIE: '/movie/',
     NOT_FOUND: '/*',
 } as const;
@@ -25,7 +26,7 @@ export const PROTECTED_ROUTES: T_Route_Data[] = [
     },
     {
         key: 'WATCHLIST',
-        path: ROUTES.WATCHLIST,
+        path: ROUTES.WATCHLIST_ID,
         element: <Watchlist />,
     },
     {

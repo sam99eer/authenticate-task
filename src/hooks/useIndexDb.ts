@@ -12,7 +12,19 @@ const useIndexDb = () => {
         database = await openDB<LocalDB>(DB.NAME, DB.VERSION, {
             upgrade(db) {
                 db.createObjectStore(DB_TABLES.USERS);
-                db.createObjectStore(DB_TABLES.WATCHLISTS);
+
+                const watchlist = db.createObjectStore(DB_TABLES.WATCHLIST, {
+                    autoIncrement: true,
+                });
+                watchlist.createIndex('email', 'email', { unique: false });
+                watchlist.createIndex('watchlistId', 'watchlistId', {
+                    unique: false,
+                });
+
+                const watchlists = db.createObjectStore(DB_TABLES.WATCHLISTS, {
+                    autoIncrement: true,
+                });
+                watchlists.createIndex('email', 'email', { unique: false });
             },
         });
         setDb(database);

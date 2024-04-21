@@ -13,6 +13,7 @@ export const DB: T_DBConfig = {
 
 export const DB_TABLES = {
     USERS: 'users',
+    WATCHLIST: 'watchlist',
     WATCHLISTS: 'watchlists',
 } as const;
 

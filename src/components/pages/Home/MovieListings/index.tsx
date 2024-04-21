@@ -73,6 +73,7 @@ const MovieListings = () => {
                             key={item.imdbID}
                             data={item}
                             mode='wishlist'
+                            search={search}
                         />
                     ))
                 )}

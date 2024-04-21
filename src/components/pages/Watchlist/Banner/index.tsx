@@ -1,11 +1,24 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Edit from 'src/assets/svg/Edit';
 import EditModal from 'src/components/pages/Watchlist/EditModal';
+import useWatchlistStore from 'src/hooks/useWatchlistStore';
 import typography from 'src/styles/Typography.module.css';
 import styles from 'src/styles/Watchlist.module.css';
 
 const Banner = () => {
     const [editMode, setEditMode] = useState(false);
+
+    const { watchlistId } = useParams();
+    const watchlist = useWatchlistStore((store) => store.watchlist);
+
+    const filteredWatchlist = useMemo(
+        () =>
+            watchlistId
+                ? watchlist.find((item) => item.watchlistId === watchlistId)
+                : null,
+        [watchlistId, watchlist]
+    );
 
     const toggleEditHandler = () => {
         setEditMode((prevState) => !prevState);
@@ -15,23 +28,24 @@ const Banner = () => {
         <>
             {editMode && (
                 <EditModal
-                    title='s'
-                    description='ss'
+                    title={filteredWatchlist?.title ?? ''}
+                    description={filteredWatchlist?.description ?? ''}
                     editToggle={toggleEditHandler}
+                    watchlistId={watchlistId}
                 />
             )}
 
             <div className={styles.topRow}>
-                <h1 className={typography.heading}>Movies by Sameer</h1>
+                <h1 className={typography.heading}>
+                    {filteredWatchlist?.title ?? ''}
+                </h1>
                 <Edit onClick={toggleEditHandler} />
             </div>
 
             <div className={styles.descriptionBox}>
                 <h3 className={typography.subheading}>About this watchlist</h3>
                 <p className={typography.paragraph}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
-                    est? Harum maiores ut modi voluptatem, eligendi nemo ducimus
-                    minima suscipit commodi, dolor ratione?
+                    {filteredWatchlist?.description ?? ''}
                 </p>
             </div>
         </>

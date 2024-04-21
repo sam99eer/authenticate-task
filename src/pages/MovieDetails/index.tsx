@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import GetMovie from 'src/api/GetMovie';
@@ -19,9 +20,11 @@ const MovieDetails = () => {
         }
     );
 
-    if (!!movieId === false) {
-        return navigate(ROUTES.HOME, { replace: true });
-    }
+    useEffect(() => {
+        if (!!movieId === false) {
+            navigate(ROUTES.HOME, { replace: true });
+        }
+    }, [movieId]);
 
     if (isLoading) return <Loader />;
 
